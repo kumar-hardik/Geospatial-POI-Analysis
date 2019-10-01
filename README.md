@@ -2,17 +2,17 @@
 
 There's a lot of open data available about the demographics and geography of the planet. But this information is not necessarily supervised in any particular structure from which insights can be drawn.
 
-This project create clusters of distinct commercial centers or markets using points of interest data of a city (the city could be yours). Points of interest (POI) data provides location information of different places along with their defining tags like school, type of outlets, type of building, etc.
+This project create clusters of distinct commercial centers or markets using points of interest data of a city (the city could be yours). Points of interest (POI) data provides location information of different places along with their defining tags like hotels, type of shops, type of amenities, etc.
 
 
 ## Getting Started
 
-The jupyter notebook is easily rendered over Github so you don't have to do anything specific. But the Folium Maps which are used here will not be rendered here on github, so download all the htlm files from Map folder and open on Chrome Browser or run the notebook locally.
+The jupyter notebook is easily rendered over Github so you don't have to do anything specific. But the Folium Maps which are used here will not be rendered here on github, so download all the 'htlm' files from Map folder and open on Chrome Browser or run the notebook locally.
 
 ### Getting the Data
 
 Getting an open source map which have all the attributes. 
-Open Source Map (https://www.openstreetmap.org/#map=11/28.6518/77.2219) is the open source to get all the information.
+Open Source Map (OSM): (https://www.openstreetmap.org/#map=11/28.6518/77.2219) is the open source to get all the information.
 
 You can use overpy (a python frontend for overpass API of OSM) to get OSM data for the desired city.
 
@@ -21,81 +21,50 @@ You can use overpass-turbo to frame queries. Also Read about the various spatial
 
 Save or Export the data as geojson file.
 
-Query to extract a point or known as node
+Query to extract a point or known as node, here below a shop.
 ```
 node[amenity=shop]({{bbox}});
 out;
 ```
 
-### Installing
+### Reading the Data And Visualization
 
-A step by step series of examples that tell you how to get a development env running
+Use the Geopandas library, a python library based on pandas to work with geospatial data.
 
-Say what the step will be
+#### Folium Library
 
-```
-Give the example
-```
+A python library built upon leaflet, which is a Java Script based web library.
+It provides enough customization and options to play with interactive web map.
 
-And repeat
+#### Visualization
 
-```
-until finished
-```
+Import a map of North Delhi by providing the geo-coordinates and arguments
 
-End with an example of getting some data out of the system or using it for a little demo
+![alt text](https://github.com/kumar-hardik/Geospatial-POI-Analysis/blob/master/Maps/Plain%20map.PNG)
 
-## Running the tests
+Using the data, plot the coordinates of the POIs over the map area
 
-Explain how to run the automated tests for this system
+![alt text](https://github.com/kumar-hardik/Geospatial-POI-Analysis/blob/master/Maps/points.PNG)
 
-### Break down into end to end tests
+Now add the heat map plugin to see the density of the POIs
 
-Explain what these tests test and why
+![alt text](https://github.com/kumar-hardik/Geospatial-POI-Analysis/blob/master/Maps/density.PNG)
 
-```
-Give an example
-```
+Using the MarkerCluster plugin of Folium, cluster the points into groups
 
-### And coding style tests
+![alt text](https://github.com/kumar-hardik/Geospatial-POI-Analysis/blob/master/Maps/POI%20clustering.PNG)
 
-Explain what these tests test and why
 
-```
-Give an example
-```
+### Clustering with Machine Learning
 
-## Deployment
+In Data Science and Machine Learning, KMeans and DBScan are two of the most popular clustering(unsupervised) algorithms.
 
-Add additional notes about how to deploy this on a live system
+Density clustering algorithms use the concept of reachability i.e. how many neighbors has a point within a radius. DBScan is more lovely because it doesn’t need parameter, k, which is the number of clusters we are trying to find, which KMeans needs. When you don’t know the number of clusters hidden in the dataset and there’s no way to visualize your dataset, it’s a good decision to use DBScan. DBSCAN produces a varying number of clusters, based on the input data.
 
-## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+## What's Left or Future Prospects
 
-## Contributing
+* Ploting the DBSCSN cluster into Folium Maps
+* Apart from Node, including Way and Relation data type and perform similar analysis and clustering.
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
