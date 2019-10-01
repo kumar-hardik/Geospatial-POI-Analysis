@@ -1,0 +1,64 @@
+{{OverpassTurboExample|loc=26.85157;80.95276;13|query=
+/*
+This is an example Overpass query.
+Try it out by pressing the Run button above!
+You can find more examples with the Load tool.
+*/
+[out:json][timeout:25];
+// gather results
+(
+  
+  node["amenity"="cafe"]({{((}}bbox{{))}});
+  node["amenity"="bank"]({{((}}bbox{{))}});
+  node["amenity"="bar"]({{((}}bbox{{))}});
+  node["amenity"="bbq"]({{((}}bbox{{))}});
+  node["amenity"="pub"]({{((}}bbox{{))}});
+  node["amenity"="fast_food"]({{((}}bbox{{))}});
+  node["amenity"="food_court"]({{((}}bbox{{))}});
+  node["amenity"="ice_cream"]({{((}}bbox{{))}});
+  node["amenity"="resturant"]({{((}}bbox{{))}});
+  node["amenity"="bicycle_parking"]({{((}}bbox{{))}});
+  node["amenity"="bicycle_repair_station"]({{((}}bbox{{))}});
+  node["amenity"="bus_station"]({{((}}bbox{{))}});
+  node["amenity"="fuel"]({{((}}bbox{{))}});
+  node["amenity"="atm"]({{((}}bbox{{))}});
+  node["amenity"="clinic"]({{((}}bbox{{))}});
+  node["amenity"="pharmacy"]({{((}}bbox{{))}});
+  node["amenity"="cinema"]({{((}}bbox{{))}});
+  node["amenity"="community_centre"]({{((}}bbox{{))}});
+  node["amenity"="nightclub"]({{((}}bbox{{))}});
+  node["amenity"="studio"]({{((}}bbox{{))}});
+  node["amenity"="theatre"]({{((}}bbox{{))}});
+  node["amenity"="bench"]({{((}}bbox{{))}});
+  node["amenity"="police"]({{((}}bbox{{))}});
+  node["amenity"="toilets"]({{((}}bbox{{))}});
+  node["barrier"="lift_gate"]({{((}}bbox{{))}});
+  node["craft"="electrician"]({{((}}bbox{{))}});
+  
+  // Selecting All Shop
+  node[shop]({{((}}bbox{{))}});
+  
+ 
+  
+  
+  //Ways structure
+  way["building"="hotel"]({{((}}bbox{{))}});
+  way["building"="retail"]({{((}}bbox{{))}});
+  way["building"="commercial"]({{((}}bbox{{))}});
+  way["building"="temple"]({{((}}bbox{{))}});
+  way["building"="parking"]({{((}}bbox{{))}});
+  way["landuse"="retail"]({{((}}bbox{{))}});
+  way["landuse"="commrcial"]({{((}}bbox{{))}});
+  way["landuse"="depot"]({{((}}bbox{{))}});
+  way["leisure"="garden"]({{((}}bbox{{))}});
+  way["leisure"="fitness_centre"]({{((}}bbox{{))}});
+  way["leisure"="playground"]({{((}}bbox{{))}});
+  
+  
+  
+);
+// print results
+out body;
+>;
+out skel qt;
+}}
