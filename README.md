@@ -64,7 +64,7 @@ Density clustering algorithms use the concept of reachability i.e. how many neig
 
 ## What's Left or Future Prospects
 
-* Ploting the DBSCSN cluster into Folium Maps
+* Ploting the DBSCAN cluster into Folium Maps
 * Apart from Node, including Way and Relation data type and perform similar analysis and clustering.
 
 
